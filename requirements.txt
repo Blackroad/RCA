@@ -1,0 +1,11 @@
+pytest==2.9.0
+websockets
+suds-jurko
+pytest_bdd
+pillow
+selenium
+jsonpickle
+pony
+pymysql
+
+
