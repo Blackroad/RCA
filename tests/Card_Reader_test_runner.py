@@ -42,9 +42,8 @@ async def Card_Reader_thread():
                  result_state = '\nUser Card status: Card not Initialized'
                  result_message = result[3:]
                  print(result_state, '\n' + "Reason is:" + ' ' + (' '.join([i for i in result_message])))
-                 input('Do you want to run appropriate test(Y/N):  ')
                  if input('Do you want to run appropriate test(Y/N):  ') == 'Y':
-                     pytest.main('test_units_serviceON_withCard.py')
+                     pytest.main('test_units_serviceON_withoutCardReader.py')
                  else:
                      pass
 
