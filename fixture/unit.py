@@ -122,6 +122,7 @@ class UnitHelper:
         wd.find_element_by_xpath("//div[@id='select-dispositionMsgContainer']/a[@id='popup-summary']").click()
         time.sleep(2)
         wd.switch_to_window(wd.window_handles[-1])
+        self.app.wait("//li[@class='item item-right']")
 
 
     def unit_status(self,status):

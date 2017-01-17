@@ -16,7 +16,9 @@ async def Card_Reader_thread():
                 result_data_name = '\nUser First Name / Last Name : {} {}\nUserlogin : {}\nUser ID : {}'.format(result[4], result [6], result [8], result [10])
                 print (result_state,"\nRecieved Data:", result_data_name)
                 if input('Do you want to run appropriate test(Y/N):  ') == 'Y':
-                    pytest.main('test_units_serviceON_withCard.py')
+                    if input('Do you want to make transition to "Disposition Complete" state(Y/N)?:  ') == 'Y':
+                        pytest.main('test_units_submit_event.py')
+                    else: pytest.main('test_units_serviceON_withCard.py')
                 else:
                     continue
 
@@ -46,6 +48,7 @@ async def Card_Reader_thread():
                      pytest.main('test_units_serviceON_withoutCardReader.py')
                  else:
                      continue
+
 
 
 
