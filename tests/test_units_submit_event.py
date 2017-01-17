@@ -1,5 +1,5 @@
 def test_input_units_REWORK(app):
-    user_name = app.config['card_data']["user_name"]
+    #user_name = app.config['card_data']["user_name"]
     app.unit.find_units('REWORK')
     assert app.unit.element_presented("//div[@class='buttonPanel']/button[@id='ok_button']")
     app.unit.submit_unit()
