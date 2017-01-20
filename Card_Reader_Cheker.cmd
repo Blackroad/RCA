@@ -1,1 +1,1 @@
-python Card_Reader_Service_checker.py
+python tests/Card_Reader_Service_checker.py
