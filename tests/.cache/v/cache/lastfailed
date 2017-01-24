@@ -1,4 +1,3 @@
 {
-  "test_units_serviceON_withCard.py::test_input_units_CONTINUE": true,
-  "test_units_serviceON_withCard.py::test_input_units_REWORK": true
+  "test_rework_NCP.py::test_rework_NCP": true
 }

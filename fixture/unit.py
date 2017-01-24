@@ -58,7 +58,7 @@ class UnitHelper:
         self.select_disposition(list, random_serial)
         time.sleep(2.5)
         if self.find_action_value(action):
-            return True, random_serial
+            return True
         list.remove(random_serial)
 
     def select_disposition(self, list, random_serial):
@@ -163,6 +163,7 @@ class UnitHelper:
         wd.find_element_by_xpath("//select[@id='select-disp-act']").click()
         wd.find_element_by_xpath("//select[@id='select-disp-act']/option[@value = '%s']" % work_path).click()
         self.submit_unit()
+        time.sleep(2)
         wd.find_element_by_xpath("//div[@class='buttonPanel']/button[@data-event='rca-popup-cancel'and text()='Close']").click()
 
 
