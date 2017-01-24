@@ -17,10 +17,16 @@ async def Card_Reader_thread():
                     result_state = '\nUser Card status: Card is initialized'
                     result_data_name = '\nUser First Name / Last Name : {} {}\nUserlogin : {}\nUser ID : {}'.format(result[4], result [6], result [8], result [10])
                     print (result_state,"\nRecieved Data:", result_data_name,"\x1b[1;32m")
-                    if input('Do you want to run appropriate test(Y/N):  ') == 'Y':
-                        if input('Do you want to make transition to "Disposition Complete" state(Y/N)?:  ') == 'Y':
-                            pytest.main('test_units_submit_event.py')
-                        else: pytest.main(['test_units_serviceON_withCard.py'])
+                    input('Select test case for executing:  \n1 - Check usual data receiving through card reader'
+                          '\n2 - Check unit transition to "Disposition Complete" state'
+                          '\n3-Check NCP loop for REWORK item'
+                          '\nInput number(1,2,3) and click ENTER:  ')
+                    if input=='1':
+                        pytest.main(['test_units_serviceON_withCard.py'])
+                    elif input == '2':
+                        pytest.main(['test_units_submit_event.py'])
+                    elif input =='3':
+                        pytest.main(['test_rework_NCP.py'])
                     else:
                         continue
 

@@ -109,6 +109,7 @@ class UnitHelper:
 
     def submit_unit(self):
         wd = self.app.wd
+
         wd.find_element_by_xpath("//div[@class='buttonPanel']/button[@id='ok_button']").click()
 
     def element_presented(self,elem_xpath):
