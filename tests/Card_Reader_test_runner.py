@@ -60,7 +60,7 @@ async def Card_Reader_thread():
         print("\x1b[1;31m", '\nService is not started!\n',"\x1b[1;32m")
         if input('Do you want to run appropriate test(Y/N):  ') == 'Y':
             pytest.main(['test_units_serviceOFF.py'])
-            print('\nStart service and run script again')
+            print('\nStart service to perform testing with card reader data')
 
 
 
