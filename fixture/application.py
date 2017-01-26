@@ -14,7 +14,9 @@ class Application:
         if browser == "firefox":
             self.wd = webdriver.Firefox()
         elif browser == "chrome":
-            self.wd = webdriver.Chrome()
+            options = webdriver.ChromeOptions()
+            options.add_argument("--start-maximized")
+            self.wd = webdriver.Chrome(chrome_options=options)
         elif browser == "ie":
             self.wd = webdriver.Ie()
         else:
@@ -45,3 +47,6 @@ class Application:
             return True
         except:
             return False
+
+
+

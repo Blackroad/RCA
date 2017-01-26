@@ -26,6 +26,7 @@ class UnitHelper:
         wd.find_element_by_xpath("//div[@id='rca-left']/ul[@class='tabs-menu']/li[@class='menu-item']/a[@href='#tab-unit-details']").click()
         self.app.wait("//div[@class='tabs-pane with-rca-inputs active-pane']")
         self.open_random_MES(action)
+        time.sleep(2)
 
 
     #gather all units from MES list
@@ -50,7 +51,6 @@ class UnitHelper:
             wd.find_element_by_xpath("//select[@id='select-dc']").click()
             wd.find_element_by_xpath("//select[@id='select-dc']/option[@data-action='%s']" % value).click()
 
-            time.sleep(2)
 
 
     def open_disposition_window(self,action,list):
