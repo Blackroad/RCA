@@ -35,7 +35,7 @@ async def Card_Reader_thread():
                      result_message = result[3:]
                      print (result_state,'\n'+ "Reason is:" + ' '+(' '.join([i for i in result_message])),"\x1b[1;32m")
                      if input('Do you want to run appropriate test(Y/N):  ') == 'Y':
-                         pytest.main(['test_units_serviceON_withoutCard.py'])
+                         pytest.main(["--html=report.html",'test_units_serviceON_withoutCard.py'])
                      else:
                          continue
 

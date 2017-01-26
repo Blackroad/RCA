@@ -29,12 +29,14 @@ def app(request, config):
     fixture.session.login()
     return fixture
 
+
 @pytest.fixture(autouse=True)
 def stop(request):
     def fin():
         fixture.destroy()
     request.addfinalizer(fin)
     return fixture
+
 
 
 def pytest_addoption(parser):

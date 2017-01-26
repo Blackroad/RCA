@@ -1,7 +1,6 @@
 pytest
 websockets
 suds-jurko
-pytest_bdd
 pillow
 selenium
 jsonpickle
