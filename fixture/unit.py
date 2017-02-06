@@ -12,7 +12,7 @@ class UnitHelper:
 
     def find_units(self,action):
         wd = self.app.wd
-        unit_serials = self.app.config['web']
+        unit_serials = self.app.config['jira']
         wd.find_element_by_xpath("//div[@class='tabs-pane active-pane']/div[@id='unitserials']/textarea").send_keys(unit_serials['unitserials'])
         wd.find_element_by_xpath("//div[@class='tabs-pane active-pane']/div[@id='unitserials']/div[@class='buttons']/input[@id='unit-serial-search'] ").click()
         time.sleep(2)
@@ -86,7 +86,7 @@ class UnitHelper:
         return False
 
     def get_unit_list(self):
-        units = self.app.config['web']['unitserials']
+        units = self.app.config['jira']['unitserials']
         units = units.split()
         return units
 
@@ -140,9 +140,9 @@ class UnitHelper:
     def assignee_field(self):
         wd = self.app.wd
         user_info = wd.find_elements_by_xpath("//span[@id='assignee-val']/span[1]")
-        user_name=user_info.text
-        #user_login = user_info.get_attribute('rel')
-        return user_name
+        for element in user_info:
+            username=element.text
+            return username
 
 
 
@@ -161,13 +161,30 @@ class UnitHelper:
         return False
 
 
-    def select_work_path(self,work_path):
+    def Rwk_submit_with_workpath(self, work_path):
         wd=self.app.wd
         wd.find_element_by_xpath("//select[@id='select-disp-act']").click()
         wd.find_element_by_xpath("//select[@id='select-disp-act']/option[@value = '%s']" % work_path).click()
         self.submit_unit()
         time.sleep(2)
-        wd.find_element_by_xpath("//div[@class='buttonPanel']/button[@data-event='rca-popup-cancel'and text()='Close']").click()
+        if self.submit_without_fail() == True:
+            wd.find_element_by_xpath("//div[@class='buttonPanel']/button[@data-event='rca-popup-cancel'and text()='Close']").click()
+
+
+    def submit_without_fail(self):
+        wd = self.app.wd
+        result=[]
+        fails = wd.find_elements_by_xpath("//table[@id='disp-result']/tbody//td[2]")
+        for element in fails:
+            result.append(element.text)
+        if 'fail' in result:
+            return False
+        else:
+            return True
+
+
+
+
 
 
 

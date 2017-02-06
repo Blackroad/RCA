@@ -25,7 +25,7 @@ class Application:
         self.session = SessionHelper(self)
         self.unit = UnitHelper(self)
         self.config = config
-        self.base_url = config['web']['baseURL']
+        self.base_url = config['jira']['baseURL']
 
     def wait(self,element):
         wd = self.wd

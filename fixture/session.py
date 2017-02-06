@@ -6,7 +6,7 @@ class SessionHelper:
 
     def login(self):
         #login to main dashboard
-        credentials=self.app.config['web']
+        credentials=self.app.config['jira']
         wd = self.app.wd
         self.app.open_home_page()
         wd.find_element_by_xpath("//div[@class='content-body aui-panel']//div[@class='field-group']/input[@id='login-form-username']").clear()

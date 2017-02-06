@@ -14,4 +14,5 @@ def test_input_units_CONTINUE(app):
 
 def test_input_units_SCRAP(app):
     app.unit.find_units('SCRAP')
-    assert app.unit.element_presented("//div[@class='buttonPanel']/button[@id='ok_button']")
+    assert app.unit.element_presented("//div[@class='buttonPanel']/button[@disabled]")
+    assert app.unit.text_presented('Could not identify card')
