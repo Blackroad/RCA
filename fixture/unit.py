@@ -90,20 +90,18 @@ class UnitHelper:
         units = units.split()
         return units
 
-    def random_string(self, prefix, maxlen, symbols=None, digits=None):
-        if symbols != None:
-            symbols = string.ascii_letters
-            return prefix + "".join([random.choice(symbols) for i in range(random.randrange(maxlen))])
-        elif digits != None:
+    def random_string(self, prefix, maxlen, digits=None):
+
+        if digits != None:
             digits = string.digits
             return prefix + "".join([random.choice(digits) for i in range(random.randrange(maxlen))])
         else:
             all = string.ascii_letters + string.digits + string.punctuation
             return prefix + "".join([random.choice(all) for i in range(random.randrange(maxlen))])
 
-    def take_screenshot(self):
+    def take_screenshot(self,screen_name):
         screen = ImageGrab.grab()
-        name = self.random_string('screen',10,1,1) + '.png'
+        name = self.random_string(screen_name,3,1) + '.png'
         screen.save(name,'PNG')
 
 
@@ -167,8 +165,11 @@ class UnitHelper:
         wd.find_element_by_xpath("//select[@id='select-disp-act']/option[@value = '%s']" % work_path).click()
         self.submit_unit()
         time.sleep(2)
-        if self.submit_without_fail() == True:
+        assert self.submit_without_fail()==True
+        if work_path  == 'RwkNCP':
             wd.find_element_by_xpath("//div[@class='buttonPanel']/button[@data-event='rca-popup-cancel'and text()='Close']").click()
+        else:
+            pass
 
 
     def submit_without_fail(self):
@@ -182,9 +183,29 @@ class UnitHelper:
         else:
             return True
 
+    def release_from_NCP(self):
+        wd = self.app.wd
+        wd.find_element_by_xpath("//div/input[@id='release-from-ncp-button' and @value='Release from NCP']").click()
+        self.app.wait("//input[@id='select-disposition-button' and @style='display: inline-block;']")
 
 
 
+
+    def unit_serial_step_name(self,step_name):
+        wd = self.app.wd
+        actual_step_name = wd.find_element_by_xpath("//table[@id='configurable-unit-detail-items']//tr[3]/td").text
+        if step_name == actual_step_name:
+            return True
+        else:
+            return False
+
+
+    def contol_is_enable(self,control_id):
+        wd = self.app.wd
+        if wd.find_element_by_xpath("//input[@id='%s']" %control_id).get_attribute('disable')==True:
+            return False
+        else:
+            return True
 
 
 

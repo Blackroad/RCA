@@ -29,7 +29,7 @@ class Application:
 
     def wait(self,element):
         wd = self.wd
-        wait = WebDriverWait(wd, 10)
+        wait = WebDriverWait(wd, 20)
         wait.until(EC.element_to_be_clickable((By.XPATH,"%s" % element)))
 
 
