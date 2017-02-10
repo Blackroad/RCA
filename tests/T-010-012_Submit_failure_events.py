@@ -10,7 +10,7 @@ def test_input_units_REWORK_NCP(app):
     app.unit.take_screenshot('Rework_NCP')
     assigned_user = app.unit.assignee_field()
     assert app.unit.unit_status('In NCP')
-    #assert user_name == assigned_user
+    assert user_name == assigned_user
     app.unit.take_screenshot('Rework_NCP')
 
 def test_input_units_REWORK_non_NCP(app):
