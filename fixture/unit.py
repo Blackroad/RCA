@@ -21,7 +21,7 @@ class UnitHelper:
             wd.find_element_by_xpath("//button[@id='ok_button_only']").click()
         else:
             pass
-        time.sleep(3)
+        time.sleep(4)
         self.get_MES_serial_list()
         wd.find_element_by_xpath("//div[@id='rca-left']/ul[@class='tabs-menu']/li[@class='menu-item']/a[@href='#tab-unit-details']").click()
         self.app.wait("//div[@class='tabs-pane with-rca-inputs active-pane']")
