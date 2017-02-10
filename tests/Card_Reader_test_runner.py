@@ -19,15 +19,15 @@ async def Card_Reader_thread():
                     print (result_state,"\nRecieved Data:", result_data_name,"\x1b[1;32m""\n")
                     confirm = input(
                         'Select test case for executing:  \n1 - T-006 Disposition actions (e-sign)'
-                        '\n2 - T-010-012 Submit failure event'
-                        '\n3 - T-014 Rework NCP loop'
+                        '\n2 - T-010-013 Submit failure events'
+                        '\n3 - T-015 Rework NCP loop'
                         '\nInput number(1,2,3) and click ENTER:  ')
                     if int(confirm) == 1:
                         pytest.main(['T-006_Dispositon_actions(e-sign).py'])
                     elif int(confirm) == 2:
-                        pytest.main(['T-010-012_Submit_failure_events.py'])
+                        pytest.main(['T-010-013_Submit_failure_events.py'])
                     elif int(confirm) == 3:
-                        pytest.main(['T-014_Rework_NCP.py'])
+                        pytest.main(['T-015_Rework_NCP.py'])
                     else:
                         continue
 
@@ -60,7 +60,7 @@ async def Card_Reader_thread():
     except OSError:
         print("\x1b[1;31m", '\nService is not started!\n',"\x1b[1;32m")
         if input('Do you want to run appropriate test(Y/N):  ') == 'Y':
-            pytest.main(['T-013_Disposition_actions(serviceOFF).py'])
+            pytest.main(['T-014_Disposition_actions(serviceOFF).py'])
             print('\nStart service to perform testing with card reader data')
 
 
