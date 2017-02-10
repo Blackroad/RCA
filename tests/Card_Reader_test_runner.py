@@ -28,7 +28,8 @@ async def Card_Reader_thread():
                         pytest.main(['T-010-012_Submit_failure_events.py'])
                     elif int(confirm) == 3:
                         pytest.main(['T-014_Rework_NCP.py'])
-
+                    else:
+                        continue
 
                 elif result[1] == state[1]:
                      result_state = '\nUser Card status: Card not Initialized'

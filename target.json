@@ -3,7 +3,8 @@
     "login":"velycv1",
     "password":"123456",
     "baseURL":"http://phxm1bappd39:8080/secure/Disposition.jspa",
-    "unitserials":"3FST7A 3FT739 3FXD4P 3FXLTW 3FYVK4"
+    "unitserials":"3FST7A 3FT739 3FXD4P 3FXLTW 3FYVK4",
+    "jira_user_id":"velycv1"
   },
   "mes":{
     "login":"velycv1",
