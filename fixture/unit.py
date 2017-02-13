@@ -56,7 +56,7 @@ class UnitHelper:
     def open_disposition_window(self,action,list):
         random_serial = random.choice(list)
         self.select_disposition(list, random_serial)
-        time.sleep(2.5)
+        self.app.wait("//select[@id='select-dc']/option[text()]")
         if self.find_action_value(action):
             return True
         list.remove(random_serial)
@@ -166,6 +166,7 @@ class UnitHelper:
         self.submit_unit()
         time.sleep(2)
         assert self.submit_without_fail()==True
+        self.take_screenshot('Rework_submit')
         if work_path  == 'RwkNCP':
             wd.find_element_by_xpath("//div[@class='buttonPanel']/button[@data-event='rca-popup-cancel'and text()='Close']").click()
         else:
